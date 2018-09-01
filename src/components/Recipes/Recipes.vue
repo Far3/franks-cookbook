@@ -27,7 +27,7 @@ export default {
 		return {
 			recipes: [],
 			addRecipeData: {
-				recipe_id: '',
+				recipe_id: 0,
 				name: '',
 				ingredients: [],
 				servings: 0,
@@ -91,8 +91,8 @@ export default {
 			this.editId = '';
 			this.editRecipeData.name = '';
 			this.editRecipeData.ingredients = '';
-			this.editRecipeData.servings = recipe.servings;
-			this.editRecipeData.cost = recipe.cost
+			this.editRecipeData.servings = 0;
+			this.editRecipeData.cost = 0
 		},
 		onEditSubmit() {
 			db.collection('recipes')
@@ -105,7 +105,7 @@ export default {
 							name: this.editRecipeData.name,
 							ingredients: this.editRecipeData.ingredients,
 							servings: this.editRecipeData.servings,
-							cost: this.recipe.cost
+							cost: this.editRecipeData.cost
 						}).then(this.getRecipes)
 					})
 					this.onCancel();

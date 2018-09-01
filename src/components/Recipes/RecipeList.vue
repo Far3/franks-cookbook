@@ -10,12 +10,20 @@
 			v-if="editId === recipe.recipe_id" 
 			class="collection-item recipes__list-item"
 			:class="{ 'yellow lighten-4': editId === recipe.recipe_id }">
-			<div>{{ recipe.recipe_id }}</div>
+			<div>
+				<input class="validate" v-model="editRecipeData.recipe_id">
+			</div>
 			<div>
 				<input class="validate" v-model="editRecipeData.name">
 			</div>
 			<div>
 				<input class="validate" v-model="editRecipeData.ingredients">
+			</div>
+			<div>
+				<input class="validate" v-model="editRecipeData.servings">
+			</div>
+			<div>
+				<input class="validate" v-model="editRecipeData.cost">
 			</div>
 			<div>
 				<i @click="onEditSubmit()" class="material-icons small">check</i>
@@ -25,6 +33,7 @@
 		<div
 		v-else
 		class="collection-item recipes__list-item">
+			<div>{{ recipe.recipe_id }}</div>
 			<div>{{ recipe.name }}</div>
 			<div>Ingredients: {{ recipe.ingredients }}</div>
 			<div>Servings: {{ recipe.servings }}</div>
@@ -32,7 +41,6 @@
 			<div>Cost per serving: ${{ recipe.cost / recipe.servings }}</div>
 			<div>
 				<i @click="onEdit(recipe)" class="material-icons small">mode_edit</i>
-				<i @click="onDelete(recipe.recipe_id)" class="material-icons small">delete</i>
 			<router-link 
 				:to="{
 					name: 'recipePage', 

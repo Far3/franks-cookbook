@@ -8,7 +8,6 @@
 					<input
 					v-model="addRecipeData.recipe_id"
 					class="validate"
-					placeholder="Id"
 					>
 				</div>
 				<div>
@@ -45,13 +44,13 @@
 						type="number"
 					>
 				</div>
-				<div>
+				<button class="btn btn-link">
 					<i
 					@click="onAdd()" 
 					class="material-icons medium">
 						add
 					</i>
-				</div>
+				</button>
 			</div>
 		</div>
 	</div>
