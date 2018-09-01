@@ -13,3 +13,4 @@ src/db
 *.ntvs*
 *.njsproj
 *.sln
+.firebase/
