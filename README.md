@@ -1,6 +1,14 @@
-# vue-firestore
+# Franklyn's Cookbook
+I wanted a single place to store my most common receipes in my meal prep sunday routine. I was getting tired of looking at various websites while I was walking in the store and keeping a running list in my head. Some features.
 
-> A Vue.js project
+* Front-End application was build with Vue.js, vue-router.
+* Backend is hosted with google firebase.
+* Hosting is with google firebase. https://franks-cookbook.firebaseapp.com/#/
+* Styled with google materialize 
+
+Features
+* Able to create, edit and delete recipes.
+* Able to go to the recipe specific page for more information.
 
 ## Build Setup
 
@@ -13,9 +21,21 @@ npm run dev
 
 # build for production with minification
 npm run build
+```
+## Deploy Setup
 
-# build for production and view the bundle analyzer report
-npm run build --report
+``` bash
+# login to firebase
+firebase login
+
+# initalize firebase config
+* Set public to ./dist
+firebase init
+
+# Deploy code to production: https://franks-cookbook.firebaseapp.com
+npm run build
+firebase deploy
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+###TODO
+* Sort by ca
