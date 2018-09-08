@@ -70,11 +70,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.recipes__list-item, .recipes__add-recipe{
-	padding: 1rem;
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
+@media only screen and (min-width: 600px) {
+		.recipes__list-item, .recipes__add-recipe{
+		padding: 1rem;
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 i.material-icons {
