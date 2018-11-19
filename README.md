@@ -47,5 +47,7 @@ firebase deploy
 * Add average servings
 * Add nutrition information
 * Add aisle location for ingredients.
-* Add price history to find price trends.
-* Add filtering (slow cooker, no heating required, grilling possible).
+* Add filtering (slow cooker, no heating required, grilling possible, high protein, high fiber)
+* update with bulma instead of materialize
+* add images
+* Add description

@@ -1,17 +1,30 @@
 <template>
 	<div id="app">
 		<nav>
-			<div class="nav-wrapper blue darken-4">
-				<div class="brand-logo">Recipes that Frank is Cookin'</div>
-			</div>
+			<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<a href="#/" class="navbar-item">Recipes that Frank is Cookin'</a>
+				</div>
+			</nav>
 		</nav>
 		<div class="container">
+			<div id="flow">
+				<span class="flow-1"></span>
+				<span class="flow-2"></span>
+				<span class="flow-3"></span>
+			</div>
 			<router-view/>
 		</div>
 	</div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+Vue.use(Buefy)
+
 export default {
 	name: 'App'
 }
@@ -19,10 +32,9 @@ export default {
 
 <style>
 body {
-	background-color: #e3f2fd;
-	margin: 0;
+	background-color: #363636;
+	color: whitesmoke;
+	height: 100vh;
 }
-.container {
-	width: 80%;
-}
+
 </style>

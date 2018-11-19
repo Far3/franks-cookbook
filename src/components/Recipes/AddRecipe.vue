@@ -4,13 +4,6 @@
 			<div class="card">
 			<div class="card recipes__add-recipe">
 				<div>
-					Id:
-					<input
-					v-model="addRecipeData.recipe_id"
-					class="validate"
-					>
-				</div>
-				<div>
 					Name:
 					<input
 					v-model="addRecipeData.name"
@@ -19,41 +12,31 @@
 					>
 				</div>
 				<div>
+					Description:
+					<input
+					v-model="addRecipeData.description"
+					class="validate"
+					placeholder="Description"
+					>
+				</div>
+				<div>
 					Ingredients:
 					<input
-					v-model="addRecipeData.ingredients"
+					v-model="addRecipeData.ingredients.ingredient"
 					class="validate"
-					placeholder="Ingredients"
+					placeholder="Ingredient"
 					>
 				</div>
-				<div>
-					Servings:
-					<input 
-						v-model="addRecipeData.servings"
-						class="validate"
-						placeholder="Servings"
-						type="number"
-					>
-				</div>
-				<div>
-					Cost:
-					<input 
-						v-model="addRecipeData.cost"
-						class="validate"
-						placeholder="Cost"
-						type="number"
-					>
 				</div>
 				<button class="btn btn-link">
 					<i
 					@click="onAdd()" 
-					class="material-icons medium">
+					class="button is-rounded is-primary">
 						add
 					</i>
 				</button>
 			</div>
 		</div>
-	</div>
 </template>
 
 <script>
@@ -70,16 +53,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media only screen and (min-width: 600px) {
-		.recipes__list-item, .recipes__add-recipe{
-		padding: 1rem;
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-	}
-}
-
-i.material-icons {
-	cursor: pointer;
-}
 </style>

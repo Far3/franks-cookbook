@@ -1,9 +1,10 @@
 <template>
 	<div>
-		<AddRecipe 
+		<!-- <AddRecipe 
 			:addRecipeData="addRecipeData"
 			:onAdd="onAdd"
-		/>
+		/> -->
+		<hero />
 		<RecipeList
 			:editId="editId"
 			:editRecipeData="editRecipeData"
@@ -20,6 +21,7 @@
 import db from '@/db';
 import AddRecipe from './AddRecipe';
 import RecipeList from './RecipeList';
+import hero from '../hero';
 
 export default {
 	name: 'Recipes',
@@ -27,25 +29,42 @@ export default {
 		return {
 			recipes: [],
 			addRecipeData: {
-				recipe_id: 0,
+				recipe_id: Math.random(),
 				name: '',
-				ingredients: [],
+				label: [],
+				description: '',
+				ingredients: [
+					{ ingredient: '', aisle: '', cost: '' }
+				],
+				nutrition: [
+					{ fat: 0, carbs:0, protien: 0 },
+					{ calories: 0 }
+				],
 				servings: 0,
-				cost: 0
+				totalCost: 0
 			},
 			editId: '',
 			editRecipeData: {
-				recipe_id: '',
+				recipe_id: 0,
 				name: '',
-				ingredients: [],
+				label: [],
+				description: '',
+				ingredients: [
+					{ ingredient: '', aisle: '', cost: '' }
+				],
+				nutrition: [
+					{ fat: 0, carbs:0, protien: 0 },
+					{ calories: 0 }
+				],
 				servings: 0,
-				cost: 0
+				totalCost: 0
 			}
 		}
 	},
 	components: {
 		AddRecipe,
-		RecipeList
+		RecipeList,
+		hero
 	},
 	computed: {
 		sortedRecipes() {
@@ -117,13 +136,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.recipes__list-item, .recipes__add-recipe{
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-}
 
-i.material-icons {
-	cursor: pointer;
-}
 </style>
