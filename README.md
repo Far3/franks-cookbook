@@ -5,11 +5,10 @@ I wanted a single place to store my most common receipes in my meal prep routine
 * Front-End application was build with Vue.js.
 * Backend is hosted with google firebase.
 * Hosting is with google firebase. https://franks-cookbook.firebaseapp.com/#/
-* Styled with google materialize.
+* Styled with Buefy. https://buefy.github.io
 
 **Features**
 * Able to display current recepies in the database.
-* Able to create, edit and delete recipes.
 * Able to go to the recipe specific page for more information.
 
 ## Build Setup
@@ -47,7 +46,9 @@ firebase deploy
 * Add average servings
 * Add nutrition information
 * Add aisle location for ingredients.
-* Add filtering (slow cooker, no heating required, grilling possible, high protein, high fiber)
+* Add labels (slow cooker, no heating required, grilling possible, high protein, high fiber)
 * update with bulma instead of materialize
 * add images
 * Add description
+* Add gif images on recipe page.
+* Market it by posting on imgur
