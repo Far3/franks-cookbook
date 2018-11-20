@@ -22,7 +22,9 @@
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
-
+import VTooltip from 'v-tooltip'
+ 
+Vue.use(VTooltip)
 Vue.use(Buefy)
 
 export default {
@@ -31,10 +33,9 @@ export default {
 </script>
 
 <style>
-body {
+#app {
 	background-color: #363636;
 	color: whitesmoke;
-	height: 100vh;
 }
 
 </style>

@@ -39,10 +39,14 @@
 						<img :src="recipe.image" alt="">
 					</figure>
 				</div>
-				<div>Description: {{ recipe.description }}</div>
+					<div>Description: {{ recipe.description }}</div>
+					<div>Prep-time: {{ recipe.prep }}</div>
+					Labels: <span class="labels" v-for="(label, index) in recipe.label" :key="index">
+						<span class="emoji" :class="label" v-tooltip="'High in ' + label"></span>
+					</span>
 					<div>Servings: {{ recipe.servings }}</div>
-					<div>Cost: ${{ recipe.cost }}</div>
-					<div>Cost per serving: {{ recipe.cost / recipe.servings || '--' }}</div>
+					<div>Cost: ${{ recipe.totalCost }}</div>
+					<div>Cost per serving: ${{ recipe.totalCost / recipe.servings || '--' }}</div>
 					<div>
 						<!-- <a @click="onEdit(recipe)" class="button is-danger is-rounded">Edit</a> -->
 					<router-link 
@@ -74,7 +78,26 @@ export default {
 	]
 }
 </script>
+<style lang="scss">
+	@import '../../assets/tooltip-styles';
+</style>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+
+	.emoji {
+		&.protein::before {
+			content: '\01F4AA';
+		}
+		&.fiber::before {
+			content: '\01F4A9';
+		}
+		&.carbs::before {
+			content: '\01F35D';
+		}
+		&.fire::before {
+			content: '\01F525';
+		}
+	}
 </style>
