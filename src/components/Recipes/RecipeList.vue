@@ -5,33 +5,7 @@
 			:key="recipe.recipe_id"
 			:value="recipe"
 			class="column">
-			<div 
-				v-if="editId === recipe.recipe_id" 
-				class="recipes__list-item"
-				:class="{ 'yellow lighten-4': editId === recipe.recipe_id }">
-				<div>
-					<input class="validate" v-model="editRecipeData.recipe_id">
-				</div>
-				<div>
-					<input class="validate" v-model="editRecipeData.name">
-				</div>
-				<div>
-					<input class="validate" v-model="editRecipeData.ingredients">
-				</div>
-				<div>
-					<input class="validate" v-model="editRecipeData.servings">
-				</div>
-				<div>
-					<input class="validate" v-model="editRecipeData.cost">
-				</div>
-				<div>
-					<i @click="onEditSubmit()" class="button is-primary">check</i>
-					<i @click="onCancel()" class="button is-primary">cancel</i>
-				</div>
-			</div>
-			<div
-			v-else
-			class="card recipes__list-item">
+			<div class="card recipes__list-item">
 			<div class="card-content">
 				<div class="title">{{ recipe.name }}</div>
 				<div class="card-image">
@@ -46,7 +20,7 @@
 					</span>
 					<div>Servings: {{ recipe.servings }}</div>
 					<div>Cost: ${{ recipe.totalCost }}</div>
-					<div>Cost per serving: ${{ recipe.totalCost / recipe.servings || '--' }}</div>
+					<div>Cost per serving: ${{ (recipe.totalCost / recipe.servings).toFixed(2) || '--' }}</div>
 					<div>
 						<!-- <a @click="onEdit(recipe)" class="button is-danger is-rounded">Edit</a> -->
 					<router-link 

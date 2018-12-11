@@ -1,17 +1,64 @@
 <template>
-	<div>
+	<section>
 		<div v-if="loaded">
-			<h1>{{ name }}</h1>
-			<h2>{{ ingredients }}</h2>
-			<h3>{{ servings }}</h3>
-			<ul v-for="(ingredient, i) in ingredients" :key="i">
-				<li>{{ ingredient.ingredient}}</li>
-			</ul>
+			<section class="section is-dark">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image">
+						<img :src="image" alt="Placeholder image">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media">
+						<div class="media-content">
+							<p class="title is-4">{{ name }}</p>
+							<p class="subtitle is-6">{{ description }}</p>
+						</div>
+						</div>
+						<div class="content">
+							<nav class="panel">
+								<p class="panel-heading">
+									Ingredients
+								</p>
+								<label v-for="(ingredient, i) in ingredients" :key="i" class="panel-block columns">
+									<div class="column">
+										<b-checkbox>
+											{{ ingredient.ingredient }}
+										</b-checkbox>
+									</div>
+									<div class="column">
+										Aisle: {{ ingredient.aisle }}
+									</div>
+									<div class="column">
+										Cost: {{ ingredient.cost }}
+									</div>
+								</label>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="how-to">
+				<div class="card">
+					<div class="card-content">
+						<div class="media">
+							<div class="media-content">
+								<p class="title is-4">How-To</p>
+							</div>
+						</div>
+						<div class="card-image">
+							<figure class="image">
+								<img :src="howto" alt="How-to gif">
+							</figure>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		<div v-else>
-			<h1>Loading...</h1>
+			<h1>Not food yet...🥒</h1>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -37,11 +84,14 @@ export default {
 		.get()
 		.then(querySnapshot => {
 			querySnapshot.forEach(doc => {
-				const { name, ingredients, servings, cost } = doc.data();
+				const { name, ingredients, servings, cost, image, description, howto } = doc.data();
 				this.name = name;
 				this.ingredients = ingredients;
 				this.servings = servings;
 				this.cost = cost;
+				this.image = image;
+				this.description = description;
+				this.howto = howto;
 			})
 			this.loaded = true;
 		})
