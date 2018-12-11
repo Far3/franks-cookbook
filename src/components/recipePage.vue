@@ -53,6 +53,28 @@
 						</div>
 					</div>
 				</div>
+					<div class="card">
+						<div class="card-content">
+						<table class="table is-fullwidth">
+							<thead>
+								<tr>
+									<th>Calories</th>
+									<th>Fat</th>
+									<th>Carbs</th>
+									<th>Protein</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{nutrition.calories}}</td>
+									<td>{{nutrition.fat}}</td>
+									<td>{{nutrition.carbs}}</td>
+									<td>{{nutrition.protein}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</section>
 		</div>
 		<div v-else>
@@ -84,7 +106,7 @@ export default {
 		.get()
 		.then(querySnapshot => {
 			querySnapshot.forEach(doc => {
-				const { name, ingredients, servings, cost, image, description, howto } = doc.data();
+				const { name, ingredients, servings, cost, image, description, howto, nutrition } = doc.data();
 				this.name = name;
 				this.ingredients = ingredients;
 				this.servings = servings;
@@ -92,6 +114,7 @@ export default {
 				this.image = image;
 				this.description = description;
 				this.howto = howto;
+				this.nutrition = nutrition;
 			})
 			this.loaded = true;
 		})
